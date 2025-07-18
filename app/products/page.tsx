@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { Search, Filter, Star, ShoppingCart, Heart, X, ArrowRight } from "lucide-react"
+import { Search, Filter, Heart, X, ArrowRight, Star } from "lucide-react"
 import Header from "@/components/header"
 import { useState } from "react"
 import Image from "next/image"
@@ -16,11 +16,11 @@ export default function ProductsPage() {
 
   const categories = [
     { name: "Barcha mahsulotlar", count: 10 },
-    { name: "Yurak va qon bosimi uchun dorilar", count: 2 },
-    { name: "Vitaminlar", count: 4 },
-    { name: "Nevrologiya", count: 2},
-    { name: "Nafas yo'llari uchun dorilar", count: 1},
-    { name: "Ko‘z dori vositalari", count:1},
+    { name: "Urologik va ginekologik vitamin majmualar", count: 12 },
+    { name: "Qon tomir vositalar", count: 8 },
+    { name: "Ko'z uchun vositalar", count: 6 },
+    { name: "Buyrak uchun vositalar", count: 5 },
+    { name: "Bolalar uchun vositalar", count: 7 },
   ]
 
   const products = [
@@ -35,30 +35,22 @@ export default function ProductsPage() {
       dosage: "Kuniga 2 marta 1 tabletkadan ovqatdan keyin",
       sideEffects: ["Oshqozon buzilishi", "Bosh aylanishi", "Charchoq"],
       contraindications: ["Homiladorlik", "Buyrak yetishmovchiligi", "Allergik reaktsiyalar"],
-      price: "35,000 so'm",
-      image: "/images/magniy-b6.jpg",
+      image: "/images/magniyb_6.jpg",
       inStock: true,
-      rating: 4.8,
-      reviews: 234,
-      prescriptionRequired: false,
     },
     {
       id: 2,
       name: "Androvigor",
       category: "Vitaminlar",
-      description: "Energiya va jismoniy bardoshlilikni ko‘paytirish",
+      description: "Energiya va jismoniy bardoshlilikni ko'paytirish",
       fullDescription:
-        "Androvigor — erkaklar salomatligini qo‘llab-quvvatlovchi biologik faol qo‘shimcha (BAA) bo‘lib, u erkaklarda umumiy quvvatni oshirish, jinsiy funksiyani normallashtirish va stressga chidamlilikni yaxshilash maqsadida ishlab chiqilgan. U o‘z tarkibida tabiiy ekstraktlar, vitaminlar va mikroelementlarni jamlagan.",
+        "Androvigor — erkaklar salomatligini qo'llab-quvvatlovchi biologik faol qo'shimcha (BAA) bo'lib, u erkaklarda umumiy quvvatni oshirish, jinsiy funksiyani normallashtirish va stressga chidamlilikni yaxshilash maqsadida ishlab chiqilgan. U o'z tarkibida tabiiy ekstraktlar, vitaminlar va mikroelementlarni jamlagan.",
       activeIngredient: "Lisinopril 10mg",
       dosage: "Kuniga 1 marta ertalab ovqatdan oldin",
       sideEffects: ["Quruq yo'tal", "Bosh aylanishi", "Charchoq"],
       contraindications: ["Homiladorlik", "Angionevrotik shish tarixi", "Ikki tomonlama buyrak arteriyasi stenozi"],
-      price: "85,000 so'm",
       image: "/images/androvigor.jpg",
       inStock: true,
-      rating: 4.9,
-      reviews: 189,
-      prescriptionRequired: true,
     },
     {
       id: 3,
@@ -66,146 +58,111 @@ export default function ProductsPage() {
       category: "Yurak va qon bosimi uchun dorilar",
       description: "Energiya va umumiy faollikni oshiradi",
       fullDescription:
-        "AndroWell — erkaklar salomatligini qo‘llab‑quvvatlash uchun mo‘ljallangan biologik faol qo‘shimchadir (BAA). U jinsiy faollikni, energiya hosil bo‘lishini va umumiy tonusni yaxshilashga yordam beradi. Preparat tarkibida tabiiy ekstraktlar, vitaminlar va minerallar mavjud bo‘lib, ularning uyg‘unligi erkak organizmiga ijobiy ta’sir ko‘rsatadi.",
+        "AndroWell — erkaklar salomatligini qo'llab‑quvvatlash uchun mo'ljallangan biologik faol qo'shimchadir (BAA). U jinsiy faollikni, energiya hosil bo'lishini va umumiy tonusni yaxshilashga yordam beradi. Preparat tarkibida tabiiy ekstraktlar, vitaminlar va minerallar mavjud bo'lib, ularning uyg'unligi erkak organizmiga ijobiy ta'sir ko'rsatadi.",
       activeIngredient: "Levetiracetam 500mg",
       dosage: "Kuniga 2 marta ovqat bilan yoki ovqatsiz",
       sideEffects: ["Uyquchanlik", "Xulq-atvor o'zgarishi", "Koordinatsiya buzilishi"],
       contraindications: ["Og'ir buyrak yetishmovchiligi", "Yuqori sezuvchanlik"],
-      price: "125,000 so'm",
       image: "/images/androwell.jpg",
       inStock: true,
-      rating: 4.7,
-      reviews: 156,
-      prescriptionRequired: true,
     },
     {
       id: 4,
-      name: "babycalfood.jpg",
-      category: "Yurak va qon bosimi uchun dorilar",
-      description: "Qand diabetini boshqarish uchun uzaytirilgan ta'sir",
+      name: "BabyCalFood",
+      category: "Bolalar uchun vositalar",
+      description: "Chaqaloqlar uchun kaltsiy va vitamin D",
       fullDescription:
-        "BabyCalFood – bu chaqaloqlar va bolalar uchun mo‘ljallangan kaltsiy va vitamin D bilan boyitilgan biologik faol qo‘shimchadir. U suyak va tishlar rivojlanishini qo‘llab‑quvvatlash, immun tizimini mustahkamlash va umumiy salomatlikni ta’minlash uchun ishlab chiqilgan.",
+        "BabyCalFood – bu chaqaloqlar va bolalar uchun mo'ljallangan kaltsiy va vitamin D bilan boyitilgan biologik faol qo'shimchadir. U suyak va tishlar rivojlanishini qo'llab‑quvvatlash, immun tizimini mustahkamlash va umumiy salomatlikni ta'minlash uchun ishlab chiqilgan.",
       activeIngredient: "Metformin HCl 1000mg XR",
       dosage: "Kuniga 1 marta kechki ovqat bilan",
       sideEffects: ["Ko'ngil aynishi", "Diareya", "Og'izda metall ta'mi"],
       contraindications: ["Og'ir buyrak kasalligi", "Metabolik atsidoz", "Suvsizlanish"],
-      price: "45,000 so'm",
       image: "/images/babycalfood.jpg",
       inStock: true,
-      rating: 4.6,
-      reviews: 312,
-      prescriptionRequired: true,
     },
     {
       id: 5,
-      name: "bifokids",
-      category: "Nafas yo'llari uchun dorilar",
-      description: "Ovqatdan ozuqaviy moddalarni yaxshiroq so‘rilshtirishga yordam beradi",
+      name: "Bifokids",
+      category: "Bolalar uchun vositalar",
+      description: "Ovqatdan ozuqaviy moddalarni yaxshiroq so'rilshtirishga yordam beradi",
       fullDescription:
-        "Bifido Kids — bu chaqaloq va bolalar uchun mo‘ljallangan synbiotic (ya’ni, probiotic + prebiotic) qo‘shimcha bo‘lib, ichak microflora’sini muvozanatlashtirishga, hazmni yaxshilashga va immun tizimini mustahkamlashga yordam beradi",
+        "Bifido Kids — bu chaqaloq va bolalar uchun mo'ljallangan synbiotic (ya'ni, probiotic + prebiotic) qo'shimcha bo'lib, ichak microflora'sini muvozanatlashtirishga, hazmni yaxshilashga va immun tizimini mustahkamlashga yordam beradi",
       dosage: "Kuniga 2 marta 2 nafas olish",
       sideEffects: ["Tomoq tirnalishi", "Ovoz o'zgarishi", "Bosh og'rig'i"],
       contraindications: ["Og'ir sut oqsili allergiyasi", "Davolanmagan qo'ziqorin infeksiyalari"],
-      price: "220,000 so'm",
       image: "/images/bifokids.jpg",
       inStock: true,
-      rating: 4.8,
-      reviews: 198,
-      prescriptionRequired: true,
     },
     {
       id: 6,
       name: "Ferrostrong",
       category: "Nevrologiya",
-      description: "Organizmdagi temir rezervini to‘ldirish",
+      description: "Organizmdagi temir rezervini to'ldirish",
       fullDescription:
-        "Ferrostrong — og‘iz orqali qabul qilinadigan temir qo‘shimchasi bo‘lib, gemoglobin va mioglobin sintezini qo‘llab‑quvvatlash orqali temir tanqisligiga qarshi kurashadi .",
+        "Ferrostrong — og'iz orqali qabul qilinadigan temir qo'shimchasi bo'lib, gemoglobin va mioglobin sintezini qo'llab‑quvvatlash orqali temir tanqisligiga qarshi kurashadi .",
       activeIngredient: "Amoksitsillin/Klavulanat 875/125mg",
       dosage: "7-10 kun davomida kuniga 2 marta ovqat bilan",
       sideEffects: ["Diareya", "Ko'ngil aynishi", "Teri toshmasi"],
       contraindications: ["Penitsillin allergiyasi", "Og'ir jigar kasalligi"],
-      price: "38,000 so'm",
       image: "/images/ferrostrong.jpg",
       inStock: true,
-      rating: 4.5,
-      reviews: 267,
-      prescriptionRequired: true,
     },
     {
       id: 7,
       name: "Fertisupreme",
       category: "Vitaminlar",
-      description: "Organizmdagi temir rezervini to‘ldirish",
+      description: "Reproduktiv salomatlikni qo'llab-quvvatlash",
       fullDescription:
-        "FertiSupreme – bu reproduktiv salomatlikni qo‘llab-quvvatlashga mo‘ljallangan biologik faol qo‘shimcha. U ayollar uchun mo‘ljallangan bo‘lib, homiladorlikni rejalashtirishda organizmni tayyorlash va ovulyatsiya funksiyasini yaxshilashga yordam beradi. Tarkibida L-arginin, Chasteberry, folat, sink, CoQ10 va boshqa muhim elementlar bor",
+        "FertiSupreme – bu reproduktiv salomatlikni qo'llab-quvvatlashga mo'ljallangan biologik faol qo'shimcha. U ayollar uchun mo'ljallangan bo'lib, homiladorlikni rejalashtirishda organizmni tayyorlash va ovulyatsiya funksiyasini yaxshilashga yordam beradi. Tarkibida L-arginin, Chasteberry, folat, sink, CoQ10 va boshqa muhim elementlar bor",
       activeIngredient: "Amoksitsillin/Klavulanat 875/125mg",
       dosage: "7-10 kun davomida kuniga 2 marta ovqat bilan",
       sideEffects: ["Diareya", "Ko'ngil aynishi", "Teri toshmasi"],
       contraindications: ["Penitsillin allergiyasi", "Og'ir jigar kasalligi"],
-      price: "38,000 so'm",
       image: "/images/fertisupreme.jpg",
       inStock: true,
-      rating: 4.5,
-      reviews: 267,
-      prescriptionRequired: true,
     },
-
-     {
+    {
       id: 8,
       name: "Kalsiy D3",
       category: "Vitaminlar",
       description: "Mushak, asab va immun tizimining shirkatini yaxshilaydi",
       fullDescription:
-        "Kaltsiy D3 — bu og‘iz orqali qabul qilinadigan preparat bo‘lib, unda kaltsiy va D vitamini uyg‘unligi mavjud. Organizmda kaltsiy darajasini ushlash va suyak sog‘ligini ta’minlashda xizmat qiladi",
+        "Kaltsiy D3 — bu og'iz orqali qabul qilinadigan preparat bo'lib, unda kaltsiy va D vitamini uyg'unligi mavjud. Organizmda kaltsiy darajasini ushlash va suyak sog'ligini ta'minlashda xizmat qiladi",
       activeIngredient: "Amoksitsillin/Klavulanat 875/125mg",
       dosage: "7-10 kun davomida kuniga 2 marta ovqat bilan",
       sideEffects: ["Diareya", "Ko'ngil aynishi", "Teri toshmasi"],
       contraindications: ["Penitsillin allergiyasi", "Og'ir jigar kasalligi"],
-      price: "45,000 so'm",
-      image: "/images/kalsiy-d3.jpg",
+      image: "/images/kalsiy_d_3.jpg",
       inStock: true,
-      rating: 4.5,
-      reviews: 267,
-      prescriptionRequired: true,
     },
- {
+    {
       id: 9,
       name: "Nefrostrong",
-      category: "Vitaminlar",
-      description: "Surunkali siydik yo‘li infektsiyalarini muolaja qilish va oldini olish",
+      category: "Buyrak uchun vositalar",
+      description: "Surunkali siydik yo'li infektsiyalarini muolaja qilish va oldini olish",
       fullDescription:
-        "Nephrosten — bu buyrak va siydik yo‘li salomatligini qo‘llab‑quvvatlash uchun mo‘ljallangan o‘simlik asosidagi BAA bo‘lib, surunkali siydik yo‘li infeksiyalari (masalan, sistit, pielonefrit), interstitsial nefrit yoki glomerulonefrit kabi yallig‘lanishli holatlarni davolashda, shuningdek, buyrak toshlari oldini olishda ham foydalidir .",
+        "Nephrosten — bu buyrak va siydik yo'li salomatligini qo'llab‑quvvatlash uchun mo'ljallangan o'simlik asosidagi BAA bo'lib, surunkali siydik yo'li infeksiyalari (masalan, sistit, pielonefrit), interstitsial nefrit yoki glomerulonefrit kabi yallig'lanishli holatlarni davolashda, shuningdek, buyrak toshlari oldini olishda ham foydalidir .",
       activeIngredient: "Amoksitsillin/Klavulanat 875/125mg",
       dosage: "7-10 kun davomida kuniga 2 marta ovqat bilan",
       sideEffects: ["Diareya", "Ko'ngil aynishi", "Teri toshmasi"],
       contraindications: ["Penitsillin allergiyasi", "Og'ir jigar kasalligi"],
-      price: "128,000 so'm",
       image: "/images/nefrostrong.jpg",
       inStock: true,
-      rating: 4.5,
-      reviews: 267,
-      prescriptionRequired: true,
     },
-
     {
       id: 10,
       name: "Oftalymoks",
-      category: "Ko‘z dori vositalari",
-      description: "Bakterial kon’yunktivitni (qamishqalash, og‘riq, oqaradigan ko‘z) samarali davolaydi",
+      category: "Ko'z uchun vositalar",
+      description: "Bakterial kon'yunktivitni (qamishqalash, og'riq, oqaradigan ko'z) samarali davolaydi",
       fullDescription:
-        "Oftalymox — bu ko‘z infektsiyalarini (masalan, bakterial kon’yunktivit) davolash uchun mo‘ljallangan Moksifloksatsin asosidagi ko‘z tomchilari.",
+        "Oftalymox — bu ko'z infektsiyalarini (masalan, bakterial kon'yunktivit) davolash uchun mo'ljallangan Moksifloksatsin asosidagi ko'z tomchilari.",
       activeIngredient: "Amoksitsillin/Klavulanat 875/125mg",
       dosage: "7-10 kun davomida kuniga 2 marta ovqat bilan",
       sideEffects: ["Diareya", "Ko'ngil aynishi", "Teri toshmasi"],
       contraindications: ["Penitsillin allergiyasi", "Og'ir jigar kasalligi"],
-      price: "55,000 so'm",
       image: "/images/oftalymoks.jpg",
       inStock: true,
-      rating: 4.5,
-      reviews: 267,
-      prescriptionRequired: true,
     },
-    
   ]
 
   const filteredProducts = products.filter((product) => {
@@ -232,32 +189,15 @@ export default function ProductsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
-              <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg mb-6 flex items-center justify-center">
+              <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg mb-6 overflow-hidden">
                 <Image
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
                   width={400}
                   height={400}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-cover"
                 />
               </div>
-
-              <div className="flex items-center space-x-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-5 h-5 ${i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`}
-                  />
-                ))}
-                <span className="text-gray-600 ml-2">({product.reviews} sharh)</span>
-              </div>
-
-              <div className="text-3xl font-bold text-blue-600 mb-4">{product.price}</div>
-              {product.prescriptionRequired && (
-                <Badge variant="outline" className="mb-4">
-                  Retsept talab qilinadi
-                </Badge>
-              )}
             </div>
 
             <div className="space-y-6">
@@ -292,16 +232,6 @@ export default function ProductsPage() {
                     <li key={index}>{contraindication}</li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="flex space-x-4 pt-4">
-                <Button className="flex-1 bg-blue-600 hover:bg-blue-700" disabled={!product.inStock}>
-                  <ShoppingCart className="w-5 h-5 mr-2" />
-                  {product.inStock ? "Narx so'rash" : "Mavjud emas"}
-                </Button>
-                <Button variant="outline" size="icon">
-                  <Heart className="w-5 h-5" />
-                </Button>
               </div>
             </div>
           </div>
@@ -384,62 +314,53 @@ export default function ProductsPage() {
               {filteredProducts.map((product) => (
                 <Card
                   key={product.id}
-                  className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
+                  className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer group h-full flex flex-col"
                   onClick={() => setSelectedProduct(product)}
                 >
                   <div className="relative">
-                    <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-8">
+                    <div className="aspect-square bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center overflow-hidden">
                       <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
-                        width={200}
-                        height={200}
-                        className="w-full h-full object-cover rounded-lg"
+                        width={300}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
 
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute top-3 right-3 bg-white/80 hover:bg-white"
+                      className="absolute top-3 right-3 bg-white/80 hover:bg-white opacity-0 group-hover:opacity-100 transition-opacity"
                       onClick={(e) => {
                         e.stopPropagation()
                       }}
                     >
                       <Heart className="w-4 h-4" />
                     </Button>
-
-                    {product.prescriptionRequired && (
-                      <Badge className="absolute top-3 left-3 bg-red-500">Retsept kerak</Badge>
-                    )}
                   </div>
 
-                  <div className="p-6">
-                    <div className="mb-4">
-                      <Badge variant="outline" className="mb-2">
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="flex-grow">
+                      <Badge variant="outline" className="mb-3">
                         {product.category}
                       </Badge>
-                      <h3 className="font-bold text-gray-900 text-lg mb-2">{product.name}</h3>
-                      <p className="text-gray-600 text-sm line-clamp-2">{product.description}</p>
+                      <h3 className="font-bold text-gray-900 text-lg mb-3 leading-tight">{product.name}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">{product.description}</p>
                     </div>
 
-                    <div className="flex items-center space-x-1 mb-4">
-                      <div className="flex space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-4 h-4 ${i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`}
-                          />
-                        ))}
+                    <div className="flex items-center justify-between mt-auto">
+                      <div className="flex items-center space-x-1">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       </div>
-                      <span className="text-sm text-gray-600">({product.reviews})</span>
-                    </div>
 
-                    <div className="flex items-center justify-between">
-                      <span className="text-xl font-bold text-blue-600">{product.price}</span>
                       <Button
                         size="sm"
-                        className="bg-blue-600 hover:bg-blue-700"
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-6"
                         disabled={!product.inStock}
                         onClick={(e) => {
                           e.stopPropagation()

@@ -32,7 +32,7 @@ export default function Header() {
            <img src="/images/saabiquun-logo.svg" alt="Logo" className="h-12 w-14" />
             
             <div>
-              <span className="text-1xl font-bold text-blue-900">SAABIQUUN</span>
+              <span className="text-1xl font-bold text-blue-900">SAABIQUUN </span>
               <div className="text-xs text-gray-500">Pharm</div>
             </div>
           </Link>

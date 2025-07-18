@@ -37,8 +37,8 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">Telefon raqam</h3>
                       <p className="text-gray-600">Markaziy ofis: +998 (97) 893-87-87</p>
-                      <p className="text-gray-600">Savdo bo‘limi: +998 99 999-99-99</p>
-                      <p className="text-gray-600">Tibbiyot bo‘yicha ma’lumot: +998 99 999-99-99</p>
+                      <p className="text-gray-600">Savdo bo‘limi: +998 (97) 893-87-87</p>
+                      <p className="text-gray-600">Tibbiyot bo‘yicha ma’lumot: +998 (97) 893-87-87</p>
                       
                     </div>
                   </div>

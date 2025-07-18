@@ -35,7 +35,7 @@ export default function HomePage() {
               <div className="space-y-6">
                 {/* <Badge className="bg-blue-100 text-blue-800 px-4 py-2">Pharmaceutical Excellence Since</Badge> */}
                 <h1 className="text-5xl lg:text-7xl font-bold text-blue-900 leading-tight">
-                  SAABIQUUN
+                  SAABIQUUN PHARM
                   <span className="block text-3xl lg:text-4xl text-blue-600 font-normal mt-2">
                     Dori-darmon ishlab chiqaruvchi kompaniya
                   </span>
